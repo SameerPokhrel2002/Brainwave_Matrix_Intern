@@ -11,6 +11,12 @@ public class ATM {
     public boolean createAccount(String accountNumber, int pin) {
         if (accounts.containsKey(accountNumber)) {
             System.out.println("Account already exists!");
+            try {
+                Thread.sleep(2000); // Wait for 2 seconds before clearing the console
+            } catch (InterruptedException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
+            clearConsole();
             return false;
         }
         accounts.put(accountNumber, new Account(accountNumber, pin));
@@ -62,6 +68,10 @@ public class ATM {
         } catch (IOException e) {
             System.out.println("Error saving account to file: " + e.getMessage());
         }
+    }
+    public static void clearConsole(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
     }
 
 }

@@ -8,7 +8,7 @@ public class Main {
         atm.loadAccountsFromFile(); // Load existing accounts from file
 
         while (true) {
-            clearConsole(); // Clearing console for better user experience
+            
             System.out.println("\nATM Menu:");
             System.out.println("1. Create Account");
             System.out.println("2. Login");
